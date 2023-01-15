@@ -7,12 +7,11 @@ class Students:
 
     @classmethod
     def expelled(cls, name, group):
-        student_expelled = {name: group}
-        if student_expelled in Students.__data:
-            print(f"Студент {name} отчислен из группы {group}")
-            Students.__data.remove(student_expelled)
+        if name in Students.__data[group]:
+            index = Students.__data[group].index(name)
+            Students.__data[group].pop(index)
         else:
-            print("Такого студента нет")
+            raise ValueError("Такой студент не найден")
 
     def __init__(self, name, group):
         self.__name = name
@@ -36,5 +35,3 @@ class Students:
             raise ValueError("Недопустимый формат")
 
     name = property(get_name_student, set_new_name_student)
-
-
