@@ -34,17 +34,3 @@ class Students:
     name = property(get_name_student, set_new_name_student)
 
 
-dima = Students("Dima", "Sever-1")
-print(Students.get_global_data())
-Students.expelled("Dima", "Sever-1")
-print(Students.get_global_data())
-ilya = Students("Ilya", "PMI-119")
-print(Students.get_global_data())
-nastya = Students("Nasty", "D-119")
-print(Students.get_global_data())
-nastya.name = "Nasturtium"
-print(Students.get_global_data())
-Students.expelled("Nasturtium", "D-119")
-print(Students.get_global_data())
-kirill = Students("Kirill", "PMI-119")
-print(Students.get_global_data())
