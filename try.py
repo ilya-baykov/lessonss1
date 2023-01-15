@@ -27,16 +27,14 @@ class Students:
 
     def set_new_name_student(self, value: str):
         if isinstance(value, str):
-            index = Students.__data.index({self.__name: self.__group})
-            self.__name = value
-            Students.__data[index] = {self.__name: self.__group}
-            self.__name = value
+            if self.__name in Students.__data[self.__group]:
+                index = Students.__data[self.__group].index(self.__name)
+                Students.__data[self.__group][index] = value
+            else:
+                raise ValueError("Такой студент не найден")
         else:
             raise ValueError("Недопустимый формат")
 
     name = property(get_name_student, set_new_name_student)
 
 
-ilya = Students("Ilya", "PMI-119")
-kirill = Students("Kirill", "PMI-119")
-print(Students.get_global_data())
