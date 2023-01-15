@@ -1,8 +1,8 @@
 class Students:
-    __data = []
+    __data = {}
 
     @classmethod
-    def get_global_data(cls) -> list:
+    def get_global_data(cls) -> dict:
         return Students.__data
 
     @classmethod
@@ -17,7 +17,10 @@ class Students:
     def __init__(self, name, group):
         self.__name = name
         self.__group = group
-        Students.__data.append({name: group})
+        if group not in Students.__data:
+            Students.__data[group] = [name]
+        else:
+            Students.__data[group].append(name)
 
     def get_name_student(self) -> str:
         return self.__name
@@ -34,3 +37,6 @@ class Students:
     name = property(get_name_student, set_new_name_student)
 
 
+ilya = Students("Ilya", "PMI-119")
+kirill = Students("Kirill", "PMI-119")
+print(Students.get_global_data())
