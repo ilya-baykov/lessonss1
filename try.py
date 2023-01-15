@@ -46,3 +46,5 @@ nastya.name = "Nasturtium"
 print(Students.get_global_data())
 Students.expelled("Nasturtium", "D-119")
 print(Students.get_global_data())
+kirill = Students("Kirill", "PMI-119")
+print(Students.get_global_data())
