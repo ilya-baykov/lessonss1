@@ -39,9 +39,8 @@ class Students:
         if new_group in Students.__data:
             Students.__data[self.__group].remove(self.__name)
             Students.__data[new_group].append(self.__name)
+            self.__group = new_group
         else:
             raise ValueError("Такой группы не существует")
 
     name = property(get_name_student, set_new_name_student)
-
-
