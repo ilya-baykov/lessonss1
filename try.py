@@ -43,4 +43,5 @@ class Students:
         else:
             raise ValueError("Такой группы не существует")
 
+
     name = property(get_name_student, set_new_name_student)
